@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Register Page
+{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <!-- {{ form }} -->
+    <div class="container" style="width: 40%;">
+
+        <form action="" method="POST" class="form-register" style="color: white;">
+
+            {{ form.hidden_tag() }}
+
+            <blockquote class="blockquote text-center" style="z-index: -1;">
+                <h3 class="mb-0 myHeading">Join an amazing Vintage loving Community!</h3>
+                <!-- <footer class="blockquote-footer">Vintage means <cite title="Source Title">Pre-Loved</cite></footer> -->
+            </blockquote>
+
+            {{ form.username.label() }}
+            {{ form.username(class = "form-control", placeholder = "Username") }}
+            <br>
+            {{ form.email.label() }}
+            {{ form.email(class = "form-control", placeholder = "Email-Address") }}
+            <br>
+            {{ form.password1.label() }}
+            {{ form.password1(class = "form-control", placeholder = "Password") }}
+            <br>
+            {{ form.password2.label() }}
+            {{ form.password2(class = "form-control", placeholder = "Confirm Password") }}
+            <!-- {{ form.submit.label() }} -->
+            <br>
+            <div class="checkbox mb-3">
+                <h6>
+                    Already have an accout?
+                    <a class="btn btn-sm btn-secondary" href="{{url_for('login_page')}}">Login</a>
+                </h6>
+            </div>
+            <div>
+                {{ form.submit(class = "btn btn-lg btn-block btn-primary") }}
+            </div>
+
+        </form>
+    </div>
+</div>
+{% endblock %}

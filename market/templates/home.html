@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+VintageBeauty
+{% endblock %}
+
+{% block content %}
+<!-- <div class="background_img" >
+    </div> -->
+<h3 style="text-align: center; margin: 2rem;">
+    Start Selling and Buying
+    <div>
+        <h5 class="text-muted"> On <a style="color: turquoise;" href="{{url_for('market_page')}}"> VintageBeauty
+                Market!!</a></h5>
+    </div>
+</h3>
+<div class="images_container" >
+    <img style="width: 400px; height: 300px;" src="../static/img/vintage-1.jpg" class="rounded float-start" alt="vintage-1">
+    <img style="width: 400px; height: 300px;" src="../static/img/vintage-2.jpg" class="rounded float-end" alt="vintage-2">
+    <img style="width: 400px; height: 300px;" src="../static/img/vintage-3.jpg" class="rounded float-end" alt="vintage-3">
+</div>
+{% endblock %}

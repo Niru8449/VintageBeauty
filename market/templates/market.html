@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block title %}
+VintageBeauty Market
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-8">
+        <h4 style="margin-left: 20px; margin-bottom: 20px;">Items available on VintageBeauty</h4>
+        <table style="margin-left: 10px; margin-right: 10px;" class="table table-hover table-dark">
+            <thead>
+                <tr>
+                    <!-- Your Columns HERE -->
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">More Info</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Purchase Item</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Your rows inside the table HERE: -->
+                {% for item in items %}
+                {% include 'includes/items_modals.html' %}
+                <tr>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>
+                        <button class="btn btn-outlint btn-info" data-toggle="modal"
+                            data-target="#Modal-MoreInfo-{{ item.id }}">More
+                            Info</button>
+                    </td>
+                    <td>{{ item.price }}$</td>
+                    <td>
+                        <button class="btn btn-outlint btn-success" data-toggle="modal"
+                            data-target="#Modal-PurchaseConfirm-{{ item.id }}">Purchase Item</button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="col-4">
+        <h4 style="margin-left: 20px; margin-bottom: 20px;">Owned Items</h4>
+        <br>
+        <div class="row">
+            {% for owned_item in owned_items %}
+            {% include 'includes/owned_items_modals.html' %}
+
+            <div class="col-md-6">
+                <div style="margin-bottom: 5px" class="card text-center bg-dark">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            {{owned_item.name}}
+                        </h5>
+                        <button type="button" class="btn btn-outline-danger" style="margin-bottom: 5px"
+                            data-toggle="modal" data-target="#Modal-Selling-Confirm-{{ owned_item.id }}">
+                            Sell this Item
+                        </button>
+                        <p class="card-text"><strong>
+                            This item costs {{ owned_item.price}}$
+                        </strong></p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
